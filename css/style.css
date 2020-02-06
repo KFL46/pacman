@@ -1,3 +1,9 @@
 section>h1{
     text-align: center;
 }
+.grille{ 
+    display:grid;
+    gridTemplateColumns: repeat(40px);
+    gridGag : 10px;
+    gridAutoRows: minimax(100px, auto);
+}
