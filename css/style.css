@@ -8,8 +8,12 @@ section>h1{
    background-color:#3D2BFF ; 
 }
 .sol{
-    background-color:#383D80;
+    background-color:#000;
 }
 .bonbon{
-    background-image:url(../img/bonbon.gif) ;
+    background-image:url(../img/bonbon.gif);
+}
+.pacman{
+    background-image: url(../img/pacman4.gif);
+    z-index: 2;
 }
