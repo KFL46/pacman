@@ -1,9 +1,15 @@
 section>h1{
     text-align: center;
 }
-.grille{ 
+#grille{ 
     display:grid;
-    gridTemplateColumns: repeat(40px);
-    gridGag : 10px;
-    gridAutoRows: minimax(100px, auto);
+}
+.mur{
+   background-color:#3D2BFF ; 
+}
+.sol{
+    background-color:#383D80;
+}
+.bonbon{
+    background-image:url(../img/bonbon.gif) ;
 }
