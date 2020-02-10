@@ -210,6 +210,35 @@ function testCollisionPacMan()
         pacman.y ++;
         } 
     }
+    if(fantomeBleu.x==pacman.x)
+        {
+            if(fantomeBleu.y==pacman.y)
+            {
+                window.alert("PERDU"); 
+            }    
+        }
+        if(fantomeJaune.x==pacman.x)
+        {
+            if(fantomeJaune.y==pacman.y)
+            {
+                window.alert("PERDU"); 
+            }    
+        }
+        if(fantomeVert.x==pacman.x)
+        {
+            if(fantomeVert.y==pacman.y)
+            {
+                window.alert("PERDU"); 
+            }    
+        }
+        if(fantomeRouge.x==pacman.x)
+        {
+            if(fantomeRouge.y==pacman.y)
+            {
+                window.alert("PERDU"); 
+            }    
+        }
+    
 }
 
 /////////////////////////////fonction pacman sort de la grille/////////////////////////
@@ -284,24 +313,21 @@ function testCollisionFantome(monFantome)
         monFantome.x ++;
         }
     }
-    else if(monFantome.direction==3){
+    else if(monFantome.direction==3)
+        {
         if (grille[monFantome.y-1][monFantome.x-1]==0)
         {
             monFantome.y ++;
         } 
         //////////////////// collision fantome contre pacman //////////////////////
-    }
-        if(monFantome.x==pacman.x){
+        }
+        if(monFantome.x==pacman.x)
+        {
             if(monFantome.y==pacman.y)
             {
                 window.alert("PERDU"); 
             }    
         }
         ///////////////////////// collision pacman contre fantome /////////////////////
-        if(pacman.x==monFantome.x){
-            if(pacman.y==monFantome.y)
-            {
-                window.alert("PERDU");
-            }
-        }
+       
 }
