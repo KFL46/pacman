@@ -20,16 +20,24 @@ var grille=[
 [0,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0],
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 ];
+function getRandomIntInclusive(min, max)
+	{
+        min=Math.ceil(min);
+        max=Math.floor(max);
+        return Math.floor(Math.random()*(max-min+1))+min;
+	}
 var _grille= document.getElementById('grille');
 var nombreBonbon=0;
 for(let ligne in grille)
     {
         for(let col in grille [ligne])
         {
-            if(grille[ligne][col]==2){
+            if(grille[ligne][col]==2)
+            {
                 nombreBonbon ++;
             }
-        }}
+        }
+    }
 function initGrille()
 {
     /*vider la grille*/
@@ -72,6 +80,10 @@ function boucleRefresh()
     initGrille();
     console.log("reflesh");
     bougePacman();
+    bougeFantome(fantomeRouge);
+    bougeFantome(fantomeJaune);
+    bougeFantome(fantomeBleu);
+    bougeFantome(fantomeVert);
     setTimeout(boucleRefresh, 1000);
 }
 var pacman = 
@@ -80,7 +92,34 @@ var pacman =
     y : 2,
     direction : 0
 };
-
+var fantomeRouge =
+{
+    x : 11,
+    y : 11,
+    direction : 0,
+    classe : "fantomeRouge"
+};
+var fantomeBleu =
+{
+    x : 11,
+    y : 11,
+    direction : 0,
+    classe : "fantomeBleu"
+};
+var fantomeJaune =
+{
+    x : 11,
+    y : 11,
+    direction : 0,
+    classe : "fantomeJaune"
+};
+var fantomeVert =
+{
+    x : 11,
+    y : 11,
+    direction : 0,
+    classe : "fantomeVert"
+};
 function bougePacman()
 {
 
@@ -100,17 +139,22 @@ function bougePacman()
     }
     //////////////appel fonction////////////
     testCollisionPacMan();
+   
     sortieMur();
     mangeBonbon();
+    
    ///////////////affichage pacman////////////////////
     var pacmanElem=document.createElement("div")
     pacmanElem.classList.add("pacman");
     pacmanElem.style.gridColumn=(pacman.x);
     pacmanElem.style.gridRow=(pacman.y);
     _grille.appendChild(pacmanElem);
-    if( nombreBonbon<=0){
+    ///////////////////////affichage fantome/////////////////////////////////
+
+    if( nombreBonbon<=0)
+    {
         window.alert("vous avez gagné");
-                }
+    }
         
 }
 boucleRefresh();
@@ -150,7 +194,6 @@ function testCollisionPacMan()
         pacman.x --;
         }
     }
-    /////////////////collision 
     if(pacman.direction==1){
         if (grille[pacman.y-1][pacman.x-1]==0)
         {
@@ -173,7 +216,7 @@ function testCollisionPacMan()
 
 function sortieMur()
 {   
-    if(pacman.x> (+grille[0].length))
+    if(pacman.x> grille[0].length)
     {
         pacman.x=1;
     }
@@ -195,4 +238,70 @@ function mangeBonbon()
     }
     
 }
-//////////////////////////// 
+//////////////////////////// deplacement fantome ////////////////////
+
+function bougeFantome(monFantome)
+{
+    console.log(monFantome);
+    monFantome.direction = getRandomIntInclusive(0, 3);
+    if(monFantome.direction==0){
+        monFantome.x ++;
+    }
+    else if(monFantome.direction==1){
+        monFantome.y ++;
+    }
+    else if(monFantome.direction==2){
+        monFantome.x --;
+    }
+    else if(monFantome.direction==3){
+        monFantome.y --;
+    }  
+    testCollisionFantome(monFantome);
+    var fantomeElem=document.createElement("div")
+    fantomeElem.classList.add(monFantome.classe);
+    fantomeElem.style.gridColumn=(monFantome.x);
+    fantomeElem.style.gridRow=(monFantome.y);
+    _grille.appendChild(fantomeElem);
+}
+    /////////////////collision fantome sur mur ///////////////////////
+function testCollisionFantome(monFantome)
+{   
+    if(monFantome.direction==0){
+        if (grille[monFantome.y-1][monFantome.x-1]==0)
+        {
+        monFantome.x --;
+        }
+    }
+    if(monFantome.direction==1){
+        if (grille[monFantome.y-1][monFantome.x-1]==0)
+        {
+        monFantome.y --;
+        }
+    }
+    if(monFantome.direction==2){
+        if (grille[monFantome.y-1][monFantome.x-1]==0)
+        {
+        monFantome.x ++;
+        }
+    }
+    else if(monFantome.direction==3){
+        if (grille[monFantome.y-1][monFantome.x-1]==0)
+        {
+            monFantome.y ++;
+        } 
+        //////////////////// collision fantome contre pacman //////////////////////
+    }
+        if(monFantome.x==pacman.x){
+            if(monFantome.y==pacman.y)
+            {
+                window.alert("PERDU"); 
+            }    
+        }
+        ///////////////////////// collision pacman contre fantome /////////////////////
+        if(pacman.x==monFantome.x){
+            if(pacman.y==monFantome.y)
+            {
+                window.alert("PERDU");
+            }
+        }
+}

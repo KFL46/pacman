@@ -17,3 +17,19 @@ section>h1{
     background-image: url(../img/pacman4.gif);
     z-index: 2;
 }
+.fantomeJaune{
+    background-image: url(../img/fantome1.gif);
+    z-index: 3;
+}
+.fantomeVert{
+    background-image: url(../img/fantome3.gif);
+    z-index: 4;
+}
+.fantomeBleu{
+    background-image: url(../img/fantome_bleu1.gif);
+    z-index: 5;
+}
+.fantomeRouge{
+    background-image: url(../img/fantome2.gif);
+    z-index: 6;
+}
