@@ -108,6 +108,10 @@ function bougePacman()
     pacmanElem.style.gridColumn=(pacman.x);
     pacmanElem.style.gridRow=(pacman.y);
     _grille.appendChild(pacmanElem);
+    if( nombreBonbon<=0){
+        window.alert("vous avez gagné");
+                }
+        
 }
 boucleRefresh();
 document.onkeypress=appuieTouche;
@@ -188,10 +192,7 @@ function mangeBonbon()
     {
         grille[pacman.y-1][pacman.x-1]=1
         nombreBonbon --;
-        if( nombreBonbon<=0){
-
-        }
     }
-    window.alert("vous avez gagné");
+    
 }
 //////////////////////////// 
