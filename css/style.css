@@ -1,35 +1,35 @@
-section>h1{
+section > h1 {
     text-align: center;
 }
-#grille{ 
-    display:grid;
+#grille {
+    display: grid;
 }
-.mur{
-   background-color:#3D2BFF ; 
+.mur {
+    background-color: #3d2bff;
 }
-.sol{
-    background-color:#000;
+.sol {
+    background-color: #000;
 }
-.bonbon{
-    background-image:url(../img/bonbon.gif);
+.bonbon {
+    background-image: url(../img/bonbon.gif);
 }
-.pacman{
+.pacman {
     background-image: url(../img/pacman4.gif);
     z-index: 2;
 }
-.fantomeJaune{
+.fantomeJaune {
     background-image: url(../img/fantome1.gif);
     z-index: 3;
 }
-.fantomeVert{
+.fantomeVert {
     background-image: url(../img/fantome3.gif);
     z-index: 4;
 }
-.fantomeBleu{
+.fantomeBleu {
     background-image: url(../img/fantome_bleu1.gif);
     z-index: 5;
 }
-.fantomeRouge{
+.fantomeRouge {
     background-image: url(../img/fantome2.gif);
     z-index: 6;
 }

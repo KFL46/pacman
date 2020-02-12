@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>pacman</title>
-</head>
-<body>
-    <p class="scores">votre score est :<span id="score"></span></p>
-    <p>Dernière direction de pacman est :<span id="direction"></span></p>
-<section>
-    <h1>PACMAN</h1>
-    <div id="grille">pp</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>pacman</title>
+    </head>
 
-</section>   
-<section>
-    <input id="bouton" type="button" value="Rejouer">
-</section>
-<script src="./js/CPacman.js"></script>
-<script src="./js/pacman.js"></script>
-<!--<script src="./js/fantomes.js"></script>-->
-</body>
+    <body>
+        <p class="scores">votre score est :<span id="score"></span></p>
+        <p>Dernière direction de pacman est :<span id="direction"></span></p>
+        <section>
+            <h1>PACMAN</h1>
+            <div id="grille">pp</div>
+        </section>
+        <section>
+            <input id="bouton" type="button" value="Rejouer" />
+        </section>
+        <script src="./js/CPacman.js"></script>
+        <script src="./js/CFantomes.js"></script>
+        <script src="./js/CGrille.js"></script>
+        <script src="./js/pacman.js"></script>
+        <!--<script src="./js/fantomes.js"></script>-->
+    </body>
 </html>
