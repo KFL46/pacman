@@ -84,7 +84,7 @@ function boucleRefresh()
 {
     initGrille();
     //console.log("reflesh");
-    bougePacman();
+    pacman.bougePacman();
     bougeFantome(fantomeRouge);
     bougeFantome(fantomeJaune);
     bougeFantome(fantomeBleu);
@@ -110,12 +110,12 @@ function boucleRefresh()
     }
 }
     ////////////////////////////////// declaration des variables ////////////////////////////////////////////
-var pacman = 
-{
+var pacman=new PacMan();
+/*{
     x : 5,
     y : 2,
     direction : 0
-};
+};*/
 var fantomeRouge =
 {
     x : 11,
@@ -144,37 +144,14 @@ var fantomeVert =
     direction : 0,
     classe : "fantomeVert"
 };
-function bougePacman()
-{
 
-    ////////////////// deplacement de pacman en fonction de sa direction  /////////////////////
-
-    if(pacman.direction==0){
-        pacman.x ++;
-    }
-    else if(pacman.direction==1){
-        pacman.y ++;
-    }
-    else if(pacman.direction==2){
-        pacman.x --;
-    }
-    else if(pacman.direction==3){
-        pacman.y --;
-    }
     //////////////  appel fonction  ////////////
 
-    testCollisionPacMan();
-    sortieMur(pacman);
-    mangeBonbon();
+   
  
    ///////////////  affichage pacman  ////////////////////
 
-    var pacmanElem=document.createElement("div")
-    pacmanElem.classList.add("pacman");
-    pacmanElem.style.gridColumn=(pacman.x);
-    pacmanElem.style.gridRow=(pacman.y);
-    _grille.appendChild(pacmanElem);
-
+   
     /////////////////////// affichage fantome /////////////////////////////////
 
     if( nombreBonbon<=0)
@@ -185,7 +162,7 @@ function bougePacman()
         finDeJeu=true;
     }
     ///////////////////////////////////// mise en place de la fonction refresh ////////////////////////////    
-}
+
 boucleRefresh();
 document.onkeypress=appuieTouche;
 btn.addEventListener('click', reset);
@@ -208,9 +185,9 @@ function reset()
         finDeJeu=false;
         boucleRefresh();
     }
-
-//    console.log("on a clické sur le bouton");
 }
+//    console.log("on a clické sur le bouton");
+
 function appuieTouche(event)
 {
     console.log(event.key);
